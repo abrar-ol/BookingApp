@@ -1,13 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import noImage from "@/public/images/no-image.jpg";
 
 const RoomCard = ({ room }) => {
+  console.log(room.image);
+  
   return (
     <div className="bg-white shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
       <div className=" flex flex-col sm:flex-row sm:space-x-4">
         <Image
-          src={`/images/rooms/${room.image}`}
+          src={room.image ? `/images/rooms/${room.image}` : noImage}
           width={500}
           height={500}
           alt={room.name}
